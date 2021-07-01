@@ -52,6 +52,7 @@ namespace YoketoruVS21
             this.Titlelabel.Size = new System.Drawing.Size(370, 86);
             this.Titlelabel.TabIndex = 0;
             this.Titlelabel.Text = "よけとる2021";
+            this.Titlelabel.Click += new System.EventHandler(this.Titlelabel_Click);
             // 
             // startbutton
             // 
