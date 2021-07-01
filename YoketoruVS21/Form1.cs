@@ -33,6 +33,8 @@ namespace YoketoruVS21
         const string EnemyText = "◇";
         const string ItemText = "★";
 
+       
+
         static Random rand = new Random();
 
         enum State
@@ -102,6 +104,9 @@ namespace YoketoruVS21
         }
         void initProc()
         {
+            Point spos = MousePosition;
+            Point fpos = PointToClient(spos);
+            PlayerText.Text = $"{fpos.X},{fpos.Y}";
             currentState = nextState;
             nextState = State.None;
             switch (currentState)
@@ -148,6 +153,9 @@ namespace YoketoruVS21
         void UpdateGame()
         {
             Point mp = PointToClient (MousePosition);
+           
+
+            //MessageBox.Show("重なった!");
 
             //TODO; mpがプレイヤーラベルの中心になるように設定
         }
