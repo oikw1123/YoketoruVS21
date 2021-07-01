@@ -40,6 +40,7 @@ namespace YoketoruVS21
             this.gameclearlabel = new System.Windows.Forms.Label();
             this.Titlebutton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tenplabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Titlelabel
@@ -146,11 +147,23 @@ namespace YoketoruVS21
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // tenplabel
+            // 
+            this.tenplabel.AutoSize = true;
+            this.tenplabel.Font = new System.Drawing.Font("Yu Gothic UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tenplabel.Location = new System.Drawing.Point(68, 188);
+            this.tenplabel.Name = "tenplabel";
+            this.tenplabel.Size = new System.Drawing.Size(44, 37);
+            this.tenplabel.TabIndex = 9;
+            this.tenplabel.Text = "★";
+            this.tenplabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tenplabel);
             this.Controls.Add(this.Titlebutton);
             this.Controls.Add(this.gameclearlabel);
             this.Controls.Add(this.gameoverlabel);
@@ -179,6 +192,7 @@ namespace YoketoruVS21
         private System.Windows.Forms.Label gameclearlabel;
         private System.Windows.Forms.Button Titlebutton;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label tenplabel;
     }
 }
 

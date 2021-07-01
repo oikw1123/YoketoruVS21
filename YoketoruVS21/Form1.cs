@@ -18,6 +18,23 @@ namespace YoketoruVS21
     {
         const bool isDebug = true;
 
+        const int PlayerMax = 1;
+        const int EnemyMax = 3;
+        const int ItemMax = 3;
+        const int ChrMax = PlayerMax + EnemyMax + ItemMax;
+
+        Label[] chrs = new Label[ChrMax];
+
+        const int PlayerIndex = 0;
+        const int  EnemyIndex =PlayerIndex;
+        const int ItemIndex = EnemyIndex + EnemyMax;
+
+        const string PlayerText = "(´・ω・｀)";
+        const string EnemyText = "◇";
+        const string ItemText = "★";
+
+        static Random rand = new Random();
+
         enum State
         {
             None = -1,
@@ -35,13 +52,35 @@ namespace YoketoruVS21
         public Form1()
         {
             InitializeComponent();
+
+            for (int i = 0; i < ChrMax; i++)
+            {
+                chrs[i] = new Label();
+                chrs[i].AutoSize = true;
+                if (i == PlayerIndex)
+                {
+                    chrs[i].Text = PlayerText;
+                }
+                else if (i < ItemIndex)
+                {
+                    chrs[i].Text = EnemyText;
+                }
+                else
+                {
+                    chrs[i].Text = ItemText;
+                }
+                chrs[i].Font = tenplabel.Font;
+
+                Controls.Add(chrs[i]);
+            }
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(isDebug)
+            if (isDebug)
             {
-                if(GetAsyncKeyState((int)Keys.O)<0)
+                if (GetAsyncKeyState((int)Keys.O) < 0)
                 {
                     nextState = State.Gameover;
                 }
@@ -54,6 +93,11 @@ namespace YoketoruVS21
             if (nextState != State.None)
             {
                 initProc();
+            }
+
+            if (currentState == State.Game)
+            {
+                UpdateGame();
             }
         }
         void initProc()
@@ -77,6 +121,13 @@ namespace YoketoruVS21
                     copyrightlabel.Visible =false;
                     hilabel.Visible = false;
 
+                    for (int i = EnemyIndex; i < ChrMax; i++)
+                    {
+                        chrs[i].Left = rand.Next(ClientSize.Width - chrs[i].Width);
+                        chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
+                    }
+
+
                     break;
 
                 case State.Gameover:
@@ -87,13 +138,20 @@ namespace YoketoruVS21
 
                 case State.clear:
                     //MessageBox.Show("Clear");
-                    gameclearlabel.Visible = false;
-                    Titlebutton.Visible = false;
+                    gameclearlabel.Visible = true;
+                    Titlebutton.Visible = true;
                     break;
 
                     
             }
         }
+        void UpdateGame()
+        {
+            Point mp = PointToClient (MousePosition);
+
+            //TODO; mpがプレイヤーラベルの中心になるように設定
+        }
+
 
         private void startbutton_Click(object sender, EventArgs e)
         {
