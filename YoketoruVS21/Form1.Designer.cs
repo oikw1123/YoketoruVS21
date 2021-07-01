@@ -29,6 +29,7 @@ namespace YoketoruVS21
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Titlelabel = new System.Windows.Forms.Label();
             this.startbutton = new System.Windows.Forms.Button();
             this.copyrightlabel = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@ namespace YoketoruVS21
             this.gameoverlabel = new System.Windows.Forms.Label();
             this.gameclearlabel = new System.Windows.Forms.Label();
             this.Titlebutton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // Titlelabel
@@ -62,6 +64,7 @@ namespace YoketoruVS21
             this.startbutton.TabIndex = 1;
             this.startbutton.Text = "スタート";
             this.startbutton.UseVisualStyleBackColor = false;
+            this.startbutton.Click += new System.EventHandler(this.startbutton_Click);
             // 
             // copyrightlabel
             // 
@@ -108,7 +111,7 @@ namespace YoketoruVS21
             this.gameoverlabel.AutoSize = true;
             this.gameoverlabel.Font = new System.Drawing.Font("Yu Gothic UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gameoverlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.gameoverlabel.Location = new System.Drawing.Point(248, 74);
+            this.gameoverlabel.Location = new System.Drawing.Point(273, 75);
             this.gameoverlabel.Name = "gameoverlabel";
             this.gameoverlabel.Size = new System.Drawing.Size(320, 86);
             this.gameoverlabel.TabIndex = 6;
@@ -119,11 +122,11 @@ namespace YoketoruVS21
             this.gameclearlabel.AutoSize = true;
             this.gameclearlabel.Font = new System.Drawing.Font("Yu Gothic UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gameclearlabel.ForeColor = System.Drawing.Color.Gold;
-            this.gameclearlabel.Location = new System.Drawing.Point(241, 22);
+            this.gameclearlabel.Location = new System.Drawing.Point(263, 9);
             this.gameclearlabel.Name = "gameclearlabel";
-            this.gameclearlabel.Size = new System.Drawing.Size(320, 86);
+            this.gameclearlabel.Size = new System.Drawing.Size(330, 86);
             this.gameclearlabel.TabIndex = 7;
-            this.gameclearlabel.Text = "gameover";
+            this.gameclearlabel.Text = "gameclear";
             // 
             // Titlebutton
             // 
@@ -136,6 +139,11 @@ namespace YoketoruVS21
             this.Titlebutton.TabIndex = 8;
             this.Titlebutton.Text = "タイトルへ";
             this.Titlebutton.UseVisualStyleBackColor = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -169,6 +177,7 @@ namespace YoketoruVS21
         private System.Windows.Forms.Label gameoverlabel;
         private System.Windows.Forms.Label gameclearlabel;
         private System.Windows.Forms.Button Titlebutton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
