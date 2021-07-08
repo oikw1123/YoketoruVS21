@@ -104,9 +104,9 @@ namespace YoketoruVS21
             this.hilabel.Font = new System.Drawing.Font("Yu Gothic UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.hilabel.Location = new System.Drawing.Point(298, 203);
             this.hilabel.Name = "hilabel";
-            this.hilabel.Size = new System.Drawing.Size(219, 50);
+            this.hilabel.Size = new System.Drawing.Size(202, 50);
             this.hilabel.TabIndex = 5;
-            this.hilabel.Text = "highscore０";
+            this.hilabel.Text = " highscore ";
             // 
             // gameoverlabel
             // 
@@ -141,6 +141,7 @@ namespace YoketoruVS21
             this.Titlebutton.TabIndex = 8;
             this.Titlebutton.Text = "タイトルへ";
             this.Titlebutton.UseVisualStyleBackColor = false;
+            this.Titlebutton.Click += new System.EventHandler(this.Titlebutton_Click);
             // 
             // timer1
             // 

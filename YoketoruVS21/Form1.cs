@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace YoketoruVS21
 {
@@ -125,7 +126,7 @@ namespace YoketoruVS21
                     Titlelabel.Visible = true;
                     startbutton.Visible = true;
                     copyrightlabel.Visible = true;
-                    hilabel.Visible = false;
+                    hilabel.Visible = true;
                     gameoverlabel.Visible = false;
                     Titlebutton.Visible = false;
                     gameclearlabel.Visible = false;
@@ -165,6 +166,9 @@ namespace YoketoruVS21
                     {
                         hiscore = time;
                         hilabel.Text = $"highscore; { hiscore}";
+
+                        File.WriteAllText("hisc.txt", $"{hiscore}\n");
+
                     }
 
                     break;
@@ -252,6 +256,11 @@ namespace YoketoruVS21
         }
 
         private void Titlelabel_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Titlebutton_Click(object sender, EventArgs e)
         {
             nextState = State.Title;
         }
