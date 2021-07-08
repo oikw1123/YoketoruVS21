@@ -23,7 +23,7 @@ namespace YoketoruVS21
 
         const int PlayerMax = 1;
         const int EnemyMax = 3;
-        const int ItemMax = 3;
+        const int ItemMax = 10;
         const int ChrMax = PlayerMax + EnemyMax + ItemMax;
 
         Label[] chrs = new Label[ChrMax];
@@ -55,6 +55,7 @@ namespace YoketoruVS21
 
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
+        int Itemcount = 0;
 
         public Form1()
         {
@@ -76,7 +77,7 @@ namespace YoketoruVS21
                 {
                     chrs[i].Text = ItemText;
                 }
-                chrs[i].Font = tenplabel.Font;
+                chrs[i].Font = templabel.Font;
 
                 Controls.Add(chrs[i]);
             }
@@ -200,6 +201,8 @@ namespace YoketoruVS21
                     else
                     {
                         chrs[i].Visible = false;
+                        Itemcount--;
+                        leftlabel.Text="★:" + Itemcount;
                     }
                 }
             }
