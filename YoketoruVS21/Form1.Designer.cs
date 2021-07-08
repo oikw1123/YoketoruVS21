@@ -102,11 +102,11 @@ namespace YoketoruVS21
             // 
             this.hilabel.AutoSize = true;
             this.hilabel.Font = new System.Drawing.Font("Yu Gothic UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.hilabel.Location = new System.Drawing.Point(568, 193);
+            this.hilabel.Location = new System.Drawing.Point(298, 203);
             this.hilabel.Name = "hilabel";
-            this.hilabel.Size = new System.Drawing.Size(220, 50);
+            this.hilabel.Size = new System.Drawing.Size(219, 50);
             this.hilabel.TabIndex = 5;
-            this.hilabel.Text = "ハイスコア100";
+            this.hilabel.Text = "highscore０";
             // 
             // gameoverlabel
             // 

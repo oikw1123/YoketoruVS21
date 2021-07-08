@@ -142,6 +142,7 @@ namespace YoketoruVS21
                         chrs[i].Top = rand.Next(ClientSize.Height - chrs[i].Height);
                         vx[i] = rand.Next(-SppedMax, SppedMax + 1);
                         vy[i] = rand.Next(-SppedMax, SppedMax + 1);
+                        chrs[i].Visible = true;
                     }
                     Itemcount = ItemMax;
                     time = Starttime+1;
@@ -163,7 +164,7 @@ namespace YoketoruVS21
                     if(time>hiscore)
                     {
                         hiscore = time;
-                        hilabel.Text = $"HighScore; { hiscore}";
+                        hilabel.Text = $"highscore; { hiscore}";
                     }
 
                     break;
