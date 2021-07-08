@@ -58,6 +58,7 @@ namespace YoketoruVS21
         public static extern short GetAsyncKeyState(int vKey);
         int Itemcount = 0;
         int time= 0;
+        int hiscore = 100;
 
         public Form1()
         {
@@ -124,7 +125,7 @@ namespace YoketoruVS21
                     Titlelabel.Visible = true;
                     startbutton.Visible = true;
                     copyrightlabel.Visible = true;
-                    hilabel.Visible = true;
+                    hilabel.Visible = false;
                     gameoverlabel.Visible = false;
                     Titlebutton.Visible = false;
                     gameclearlabel.Visible = false;
@@ -158,6 +159,13 @@ namespace YoketoruVS21
                     //MessageBox.Show("Clear");
                     gameclearlabel.Visible = true;
                     Titlebutton.Visible = true;
+                    hilabel.Visible = true;
+                    if(time>hiscore)
+                    {
+                        hiscore = time;
+                        hilabel.Text = $"HighScore; { hiscore}";
+                    }
+
                     break;
 
                     

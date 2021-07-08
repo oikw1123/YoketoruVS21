@@ -102,7 +102,7 @@ namespace YoketoruVS21
             // 
             this.hilabel.AutoSize = true;
             this.hilabel.Font = new System.Drawing.Font("Yu Gothic UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.hilabel.Location = new System.Drawing.Point(298, 203);
+            this.hilabel.Location = new System.Drawing.Point(568, 193);
             this.hilabel.Name = "hilabel";
             this.hilabel.Size = new System.Drawing.Size(220, 50);
             this.hilabel.TabIndex = 5;
@@ -156,6 +156,7 @@ namespace YoketoruVS21
             this.templabel.Size = new System.Drawing.Size(44, 37);
             this.templabel.TabIndex = 9;
             this.templabel.Text = "★";
+            this.templabel.Visible = false;
             // 
             // Form1
             // 
