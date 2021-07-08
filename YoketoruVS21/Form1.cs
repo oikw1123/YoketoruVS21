@@ -33,6 +33,7 @@ namespace YoketoruVS21
         const int PlayerIndex = 0;
         const int  EnemyIndex =PlayerIndex;
         const int ItemIndex = EnemyIndex + EnemyMax;
+        const int Starttime = 100;
 
         const string PlayerText = "(´・ω・｀)";
         const string EnemyText = "◇";
@@ -56,6 +57,7 @@ namespace YoketoruVS21
         [DllImport("user32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
         int Itemcount = 0;
+        int time= 0;
 
         public Form1()
         {
@@ -140,6 +142,8 @@ namespace YoketoruVS21
                         vx[i] = rand.Next(-SppedMax, SppedMax + 1);
                         vy[i] = rand.Next(-SppedMax, SppedMax + 1);
                     }
+                    Itemcount = ItemMax;
+                    time = Starttime+1;
 
 
                     break;
@@ -161,12 +165,21 @@ namespace YoketoruVS21
         }
         void UpdateGame()
         {
+
+            time--;
+            TIMElabel.Text = $"Time{time}";
+            if(time<=0)
+            {
+                nextState = State.Gameover;
+            }
+
             Point mp = PointToClient (MousePosition);
             chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width/2;
             chrs[PlayerIndex].Left = mp.Y - chrs[PlayerIndex].Width/2;
 
             for(int i=EnemyIndex;i<ChrMax;i++)
             {
+               
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
 
@@ -180,11 +193,11 @@ namespace YoketoruVS21
                 }
                 if (chrs[i].Right > ClientSize.Width)
                 {
-                    vx[i] = Math.Abs(vx[i]);
+                    vx[i] = -Math.Abs(vx[i]);
                 }
                 if (chrs[i].Bottom > ClientSize.Height)
                 {
-                    vy[i] = Math.Abs(vy[i]);
+                    vy[i] = -Math.Abs(vy[i]);
                 }
                 if ((mp.X >= chrs[i].Left)
                     && (mp.X < chrs[i].Right)
@@ -203,6 +216,14 @@ namespace YoketoruVS21
                         chrs[i].Visible = false;
                         Itemcount--;
                         leftlabel.Text="★:" + Itemcount;
+                        if (Itemcount <= 0)
+                        {
+                            nextState = State.clear;
+                        }
+
+                        vx[i] = 0;
+                        vy[i] = 0;
+                        chrs[i].Left = 10000;
                     }
                 }
             }
