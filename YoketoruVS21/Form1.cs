@@ -191,10 +191,20 @@ namespace YoketoruVS21
                     && (mp.Y < chrs[i].Bottom)
                     )
                 {
-                    MessageBox.Show("あたった!");
+                   // MessageBox.Show("あたった!");
+
+                    if(i<ItemIndex)
+                    {
+                        nextState = State.Gameover;
+                    }
+                    else
+                    {
+                        chrs[i].Visible = false;
+                    }
                 }
             }
-            //当たり判定
+            
+
            
 
             //MessageBox.Show("重なった!");
